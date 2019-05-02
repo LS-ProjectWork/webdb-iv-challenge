@@ -21,9 +21,7 @@ exports.up = function(knex, Promise) {
             .references('id')
             .inTable('dish')
             .onDelete('RESTRICT')
-            .onUpdate('CASCADE');
-        table
-            .decimal('quantity')
+            .onUpdate('CASCADE')
 
     })
   .createTable('ingredients', table => {
@@ -49,7 +47,10 @@ exports.up = function(knex, Promise) {
             .references('id')
             .inTable('ingredients')
             .onDelete('RESTRICT')
-            .onUpdate('CASCADE');
+            .onUpdate('CASCADE')
+        table
+            .decimal('quantity')
+            .notNullable();
     })
 };
 
